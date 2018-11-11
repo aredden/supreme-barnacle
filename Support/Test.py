@@ -2,7 +2,7 @@ from ReadKeys import readKeys
 import time
 
 def main():
-    this.sleep
+
 
 
 
