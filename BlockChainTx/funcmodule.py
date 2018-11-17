@@ -1,4 +1,4 @@
-
+from .Support import APIGetters as apiget
 
 def run():
 
@@ -7,9 +7,14 @@ def run():
     if num.lower() == 'y':
 
 #**************************************************
-# TODO: links to APIGetters.py in Support/?
+# TODO: links to APIGetters.py in Support/? !!!!!!!!!!!!!!!!
 #**************************************************
-
+        from BlockChainTx.Support.APIGetters import getcoinPrice as gcp
+        from BlockChainTx.Support.dbscript import initdb
+        initdb()
+        webInfo = gcp("Bitcoin")
         print("\n...Doing Stuff")
+        print(webInfo)
+
     else:
         print('\nDoing Nothing')
