@@ -1,32 +1,42 @@
-from .Support import APIGetters as apiget
-from .test import tests
-from BlockChainTx.Support.APIGetters import getcoinPrice as gcp
-from BlockChainTx.Support.dbscript import initdb
-from BlockChainTx.queries import query
+import BlockChainTx.server as srv
+
+
+
+def serverintloop():
+
+    server = srv.Server()
+    inpt = input("Input cmd <rids/gid/quit>:\n")
+    if inpt == "quit":
+        server.close()
+        return
+    if inpt == "rids":
+        if input("are you sure?\n>>> ") == "yes":
+            server.reset_ids()
+    if inpt == "gid":
+        inpt2 = input("\nid>>> ")
+        server.get_id(inpt2)
+    serverintloop()
+
 
 def run():
 
-    name = input("Hello, What is your name?\n")
-    inpt = input("\nHello {}!\nWould you like to see Bitcoin price? Y/N/test/query\n".format(name))
+    inpt = input("\nHello!\nWould you like to see Bitcoin price? Y/N/test/query/server\n")
     if inpt.lower() == 'y':
-
-#**************************************************
-# TODO: links to APIGetters.py in Support/? !!!!!!!!!!!!!!!!
-#**************************************************
-
-        initdb()
-        webInfo = gcp("Bitcoin")
-        print("\n...Doing Stuff")
-        print(webInfo)
-
+        print("doing stuff [nothing]")
     elif inpt.lower() == "test":
-        x = input("which test? ['db', ]")
+        x = input("Not set up")
         tests(x)
+#**************************************************
+#TODO: Finish 'query'
+#**************************************************
     elif inpt.lower() == "query":
         x = input("Enter query string: [coin name/ ticker] [price,lastupdate,24h]\n")
         args = x.split(" ")
         if(args.__len__() > 2):
-            print("Error: expected two input words, got {}".format(args.__len__())
-        query(x)
+            print("Error: expected two input words, got {}".format(args.__len__()))
+    elif inpt.lower() == "server":
+        serverintloop()
+    elif inpt.lower() == "q":
+        pass
     else:
-        print('\nDoing Nothing')
+        run()

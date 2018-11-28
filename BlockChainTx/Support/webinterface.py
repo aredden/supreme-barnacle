@@ -1,15 +1,13 @@
 from urllib.request import urlopen
-from json import loads
+import json
 
 
-class webinterface:
+class WebInterface:
 
-    def initdb():
+    def coinslistGET() -> dict:
         #load
         html = urlopen("https://api.coingecko.com/api/v3/coins/list")
-        htmlData = json.loads(html.read().decode())
-        print(htmlData)
-
+        return json.loads(html.read().decode())
 
     def getcoinPrice(coin):
         html = urlopen("https://api.coingecko.com/api/v3/coins/")
@@ -22,4 +20,5 @@ class webinterface:
 
     def getcoinData(coin):
         query = "https://api.coingecko.com/api/v3/coins/" + coin
-        html = urlopen()
+        html = urlopen(query)
+        return json.loads(html.read().decode())
