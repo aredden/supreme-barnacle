@@ -3,12 +3,13 @@ BlockChainTx is a fun project I started to improve my understanding of web UIs, 
 It will either become a tax calculator, market trading bot, rss feed aggregator, or dapp.
 
   urllib & json lib for http requests
+  mongodb through pymongo
 
-  pycli: command line interface for BlockChainTx
+
+  BlockChainTx: command line interface for BlockChainTx
     setup.py: run to install pycli
-    related files: pycli/, install.sh, setup.py
-    once installed it will create a pycli.egg-info file in the main folder.
+    related files: BlockChainTx/, install.sh, setup.py
+    once installed it will create a BlockChainTx.egg-info file in the main folder.
 
-
-MongoDB init cmd:
-"C:\Program Files\MongoDB\Server\4.0\bin\mongod.exe" --dbpath="C:\Users\alexa\Desktop\BlockChainTx\Database"
+11.13.18---
+  Comments incomplete & most of the code is very messy. Working towards cleaner & more efficient codebase.
